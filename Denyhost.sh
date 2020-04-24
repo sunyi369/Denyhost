@@ -1,14 +1,13 @@
 yum install wget -y && wget https://nchc.dl.sourceforge.net/project/denyhosts/denyhosts/2.6/DenyHosts-2.6.tar.gz
-tar zxvf DenyHosts-2.6.tar.gz                             #½âÑ¹Ô´Âë°ü
-cd DenyHosts-2.6                                          #½øÈë°²×°½âÑ¹Ä¿Â¼
-python setup.py install                                   #°²×°DenyHosts
-cd /usr/share/denyhosts/                                  #Ä¬ÈÏ°²×°Â·¾¶
-cp denyhosts.cfg-dist denyhosts.cfg                       #denyhosts.cfgÎªÅäÖÃÎÄ¼ş
-cp daemon-control-dist daemon-control                     #daemon-controlÎªÆô¶¯³ÌĞò
-chown root daemon-control                                 #Ìí¼ÓrootÈ¨ÏŞ
-chmod 700 daemon-control                                  #ĞŞ¸ÄÎª¿ÉÖ´ĞĞÎÄ¼ş
-ln -s /usr/share/denyhosts/daemon-control /etc/init.d     #¶Ôdaemon-control½øĞĞÈíÁ¬½Ó£¬·½±ã¹ÜÀí
-/etc/init.d/daemon-control start                          #Æô¶¯denyhosts
-chkconfig daemon-control on                               #½«denghostsÉè³É¿ª»úÆô¶¯
-
-/etc/init.d/daemon-control restart         #ÖØÆôdenyhosts
+tar zxvf DenyHosts-2.6.tar.gz                             #è§£å‹æºç åŒ…
+cd DenyHosts-2.6                                          #è¿›å…¥å®‰è£…è§£å‹ç›®å½•
+python setup.py install                                   #å®‰è£…DenyHosts
+cd /usr/share/denyhosts/                                  #é»˜è®¤å®‰è£…è·¯å¾„
+cp daemon-control-dist daemon-control                     #daemon-controlä¸ºå¯åŠ¨ç¨‹åº
+chown root daemon-control                                 #æ·»åŠ rootæƒé™
+chmod 700 daemon-control                                  #ä¿®æ”¹ä¸ºå¯æ‰§è¡Œæ–‡ä»¶
+ln -s /usr/share/denyhosts/daemon-control /etc/init.d     #å¯¹daemon-controlè¿›è¡Œè½¯è¿æ¥ï¼Œæ–¹ä¾¿ç®¡ç†
+/etc/init.d/daemon-control start                          #å¯åŠ¨denyhosts
+chkconfig daemon-control on                               #å°†denghostsè®¾æˆå¼€æœºå¯åŠ¨
+wget https://raw.githubusercontent.com/sunyi369/Denyhost/master/denyhosts.cfg /usr/share/denyhosts/denyhosts.cfg
+/etc/init.d/daemon-control restart         #é‡å¯denyhosts
