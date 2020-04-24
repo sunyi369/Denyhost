@@ -10,4 +10,5 @@ ln -s /usr/share/denyhosts/daemon-control /etc/init.d &&
 /etc/init.d/daemon-control start && 
 chkconfig daemon-control on && 
 wget https://raw.githubusercontent.com/sunyi369/Denyhost/master/denyhosts.cfg /usr/share/denyhosts/denyhosts.cfg && 
-/etc/init.d/daemon-control restart
+/etc/init.d/daemon-control restart &&
+rm -rf /root/DenyHosts-2.6
