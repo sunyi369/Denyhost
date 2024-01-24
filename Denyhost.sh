@@ -1,19 +1,4 @@
 #!/bin/bash
-# 读取系统的发行版信息
-OS=$(cat /etc/os-release)
-# 判断是否包含centos8的关键字
-if [[ $OS == *"centos"* ]] && [[ $OS == *"8"* ]]; then
-    # 如果是centos8，输出相应的信息
-    echo "This system is centos8."
-    cd /etc/yum.repos.d/
-    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-    yum install python27
-    cp /usr/bin/python2.7 /usr/bin/python
-else
-    # 如果不是centos8，输出相应的信息
-    echo "This system is not centos8."
-fi
 yum install python27
 cp /usr/bin/python2.7 /usr/bin/python
 wget https://github.com/denyhosts/denyhosts/archive/refs/tags/v2.10.tar.gz
