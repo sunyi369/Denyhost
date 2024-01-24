@@ -8,5 +8,5 @@ chmod 700 /usr/local/bin/daemon-control
 daemon-control start
 chkconfig daemon-control on
 wget https://raw.githubusercontent.com/sunyi369/Denyhost/master/denyhosts.cfg /usr/share/denyhosts/denyhosts.cfg
-/etc/init.d/daemon-control restart
+daemon-control restart
 rm -rf /root/DenyHosts-2.6
