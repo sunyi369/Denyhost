@@ -1,14 +1,18 @@
 yum install python27
 cp /usr/bin/python2.7 /usr/bin/python
-wget "https://nchc.dl.sourceforge.net/project/denyhosts/denyhosts/2.6/DenyHosts-2.6.tar.gz"
-tar -zxvf DenyHosts-2.6.tar.gz
-cd DenyHosts-2.6
-python setup.py install
+wget https://github.com/denyhosts/denyhosts/archive/refs/tags/v2.10.tar.gz
+tar xzvf v2.10.tar.gz
+mv denyhosts-2.10/ /usr/share/denyhosts
 cd /usr/share/denyhosts/
-cp /usr/local/share/denyhosts/daemon-control-dist /usr/local/bin/daemon-control
-chmod 700 /usr/local/bin/daemon-control
-daemon-control start
-chkconfig daemon-control on
-wget https://raw.githubusercontent.com/sunyi369/Denyhost/master/denyhosts.cfg /usr/share/denyhosts/denyhosts.cfg
-daemon-control restart
-rm -rf /root/DenyHosts-2.6
+rm -f denyhosts.conf
+wget https://raw.githubusercontent.com/sunyi369/Denyhost/master/denyhosts.cfg /usr/share/denyhosts/denyhosts.conf
+cp denyhosts.conf /etc
+cp denyhosts.py /usr/sbin/denyhosts
+mv daemon-control-dist daemon-control
+cd /etc/init.d
+ln -s /usr/share/denyhosts/daemon-control denyhosts
+touch /var/log/auth.log
+chkconfig denyhosts on 
+cp /usr/share/denyhosts/daemon-control /usr/sbin/dh
+dh restart
+
