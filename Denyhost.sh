@@ -1,3 +1,10 @@
+yum install gcc make -y
+wget "https://www.python.org/ftp/python/2.7.5/Python-2.7.5.tgz"
+tar -zxvf Python-2.7.5.tgz
+cd Python-2.7.5
+./configure --prefix=/usr/local/python2.7.5 --enable-unicode=ucs4 --enable-shared
+make
+make install
 wget "https://nchc.dl.sourceforge.net/project/denyhosts/denyhosts/2.6/DenyHosts-2.6.tar.gz"
 tar -zxvf DenyHosts-2.6.tar.gz
 cd DenyHosts-2.6
