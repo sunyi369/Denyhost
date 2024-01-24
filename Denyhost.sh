@@ -1,6 +1,4 @@
 #!/bin/bash
-yum install python27
-cp /usr/bin/python2.7 /usr/bin/python
 wget https://github.com/denyhosts/denyhosts/archive/refs/tags/v2.10.tar.gz
 tar xzvf v2.10.tar.gz
 mv denyhosts-2.10/ /usr/share/denyhosts
