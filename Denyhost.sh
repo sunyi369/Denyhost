@@ -1,3 +1,16 @@
+#!/bin/bash
+# 读取系统的发行版信息
+OS=$(cat /etc/os-release)
+# 判断是否包含centos8的关键字
+if [[ $OS == *"centos"* ]] && [[ $OS == *"8"* ]]; then
+    # 如果是centos8，输出相应的信息
+    echo "This system is centos8."
+    yum install python27
+    cp /usr/bin/python2.7 /usr/bin/python
+else
+    # 如果不是centos8，输出相应的信息
+    echo "This system is not centos8."
+fi
 yum install python27
 cp /usr/bin/python2.7 /usr/bin/python
 wget https://github.com/denyhosts/denyhosts/archive/refs/tags/v2.10.tar.gz
